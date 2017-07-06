@@ -90,13 +90,18 @@ class Region extends Widget
 
     public function run()
     {
-        $output[] = Html::activeDropDownList($this->model, $this->province['attribute'], $this->province['items'],
-            $this->province['options']);
-        $output[] = Html::activeDropDownList($this->model, $this->city['attribute'], $this->city['items'],
-            $this->city['options']);
+        $output[] = Html::tag('span',Html::activeDropDownList($this->model, $this->province['attribute'], $this->province['items'],
+            $this->province['options']),['class'=>'input-group-btn']);
+        
+        $output[] = Html::tag('span', Html::activeDropDownList($this->model, $this->city['attribute'], $this->city['items'],
+            $this->city['options']),['class'=>'input-group-btn']);
+        
+   
         if (!empty($this->district)) {
-            $output[] = Html::activeDropDownList($this->model, $this->district['attribute'], $this->district['items'],
-                $this->district['options']);
+       
+            
+            $output[] = Html::tag('span', Html::activeDropDownList($this->model, $this->district['attribute'], $this->district['items'],
+                $this->district['options']),['class'=>'input-group-btn']);
         }
         return @implode("\n", $output);
     }
