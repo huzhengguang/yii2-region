@@ -1,23 +1,13 @@
 {
     "name": "lito/yii2-region",
-    "description": "Yii2中国省市区三级联动",
-    "keywords": [
-        "yii2","region","province","city","district"
-    ],
-    "type": "yii2-widget",
-    "license": "BSD-3-Clause",
+    "require": {
+        "yiisoft/yii2": "*",
+        "kartik-v/yii2-widget-select2": "@dev"
+    },
     "authors": [
         {
             "name": "Lito",
-            "email": "lito.zheng@qq.com"
+            "email": "lito@t.tt"
         }
-    ],
-    "require": {
-        "yiisoft/yii2": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "lito\\region\\": ""
-        }
-    }
+    ]
 }
