@@ -1,6 +1,7 @@
 <?php
-namespace chenkby\region;
+namespace lito\region;
 
+use kartik\select2\Select2;
 use yii\base\InvalidParamException;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
@@ -90,18 +91,39 @@ class Region extends Widget
 
     public function run()
     {
-        $output[] = Html::tag('span',Html::activeDropDownList($this->model, $this->province['attribute'], $this->province['items'],
-            $this->province['options']),['class'=>'input-group-btn']);
-        
-        $output[] = Html::tag('span', Html::activeDropDownList($this->model, $this->city['attribute'], $this->city['items'],
-            $this->city['options']),['class'=>'input-group-btn']);
-        
-   
+        $output[] = Html::tag('span', Select2::widget([
+            'model' => $this->model,
+            'attribute' => $this->province['attribute'],
+            'data' => $this->province['items'],
+            'options' =>$this->province['options'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]),['class'=>'input-group-btn']);
+
+        $output[] = Html::tag('span', Select2::widget([
+            'model' => $this->model,
+            'attribute' => $this->city['attribute'],
+            'data' => $this->city['items'],
+            'options' =>$this->city['options'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]),['class'=>'input-group-btn']);
         if (!empty($this->district)) {
-       
-            
-            $output[] = Html::tag('span', Html::activeDropDownList($this->model, $this->district['attribute'], $this->district['items'],
-                $this->district['options']),['class'=>'input-group-btn']);
+
+            $output[] = Html::tag('span', Select2::widget([
+                'model' => $this->model,
+                'attribute' => $this->district['attribute'],
+                'data' => $this->district['items'],
+                'options' =>$this->district['options'],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+                'pluginEvents'=>[
+                    'change'=>isset($this->district['event'])?$this->district['event']:''
+                ]
+            ]),['class'=>'input-group-btn']);
         }
         return @implode("\n", $output);
     }
