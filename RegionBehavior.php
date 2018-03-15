@@ -58,4 +58,5 @@ class RegionBehavior extends Behavior
     {
         return $this->owner->province['name'].$this->owner->city['name'].($useDistrict ? $this->owner->district['name'] : '');
     }
+
 }
