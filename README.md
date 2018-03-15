@@ -6,7 +6,7 @@ Yii2 中国省市区三级联动(https://github.com/chenkby/yii2-region)
 添加到你的composer.json文件
 
 ```
-"chenkby/yii2-region": "dev-master"
+composer require lito/yii2-region
 ```
 
 ## 配置
