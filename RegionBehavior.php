@@ -1,5 +1,5 @@
 <?php
-namespace lito\region;
+namespace chenkby\region;
 use yii\base\Behavior;
 use yii\base\InvalidConfigException;
 

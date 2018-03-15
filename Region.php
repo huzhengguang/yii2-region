@@ -1,5 +1,5 @@
 <?php
-namespace lito\region;
+namespace chenkby\region;
 
 use kartik\select2\Select2;
 use yii\base\InvalidParamException;
